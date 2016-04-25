@@ -1,0 +1,113 @@
+ selectPos = 0 --list selection state
+ 
+ term.clear() --clears the screen
+ term.setCursorPos(1,1) --sets initial cursor position
+ 
+print[[
+ /$$$$$$$                                /$$      
+| $$__  $$                              | $$      
+| $$  \ $$  /$$$$$$  /$$$$$$$   /$$$$$$$| $$$$$$$ 
+| $$$$$$$  /$$__  $$| $$__  $$ /$$_____/| $$__  $$
+| $$__  $$| $$$$$$$$| $$  \ $$| $$      | $$  \ $$
+| $$  \ $$| $$_____/| $$  | $$| $$      | $$  | $$
+| $$$$$$$/|  $$$$$$$| $$  | $$|  $$$$$$$| $$  | $$
+|_______/  \_______/|__/  |__/ \_______/|__/  |__/
+]] --print custom ASCII logo
+
+ term.setTextColor(colours.lightBlue) --sets text color to light blue
+ 
+ term.setCursorPos(7,11) --cursor position
+ print("Welcome to Bench Co. International Bank") --print
+ 
+ term.setCursorPos(14,12) --cursor position
+ print("Please, select an option:") --print
+ 
+ term.setTextColor(colours.white) --sets text color to white
+ 
+ withdraw = "O  Withdraw"
+ deposit = "Deposit  O"
+ balance = "O  Balance"
+ password = "Password  O"
+ 
+ term.setCursorPos(8,14) --cursor position
+ print(withdraw) --print
+ term.setCursorPos(35,14) --cursor position
+ print(deposit) --print
+ term.setCursorPos(8,16) --cursor position
+ print(balance) --print
+ term.setCursorPos(34,16) --cursor position
+ print(password) --print
+ 
+ if x == 0 then
+ 
+   withdraw = "$  Withdraw"
+   term.setCursorPos(8,14) --cursor position
+   print(withdraw) --print
+   
+   deposit = "Deposit  O"
+   term.setCursorPos(35,14) --cursor position
+   print(deposit) --print
+   
+   balance = "O  Balance"
+   term.setCursorPos(8,16) --cursor position
+   print(balance) --print
+   
+   password = "Password  O"
+   term.setCursorPos(34,16) --cursor position
+   print(password) --print
+   
+  elseif x == 1 then
+  
+   withdraw = "O  Withdraw"
+   term.setCursorPos(8,14) --cursor position
+   print(withdraw) --print
+   
+   deposit = "Deposit  $"
+   term.setCursorPos(35,14) --cursor position
+   print(deposit) --print
+   
+   balance = "O  Balance"
+   term.setCursorPos(8,16) --cursor position
+   print(balance) --print
+   
+   password = "Password  O"
+   term.setCursorPos(34,16) --cursor position
+   print(password) --print
+   
+  elseif x == 2 then
+  
+   withdraw = "O  Withdraw"
+   term.setCursorPos(8,14) --cursor position
+   print(withdraw) --print
+   
+   deposit = "Deposit  O"
+   term.setCursorPos(35,14) --cursor position
+   print(deposit) --print
+   
+   balance = "$  Balance"
+   term.setCursorPos(8,16) --cursor position
+   print(balance) --print
+   
+   password = "Password  O"
+   term.setCursorPos(34,16) --cursor position
+   print(password) --print
+   
+  elseif x == 3 then
+  
+   withdraw = "O  Withdraw"
+   term.setCursorPos(8,14) --cursor position
+   print(withdraw) --print
+   
+   deposit = "Deposit  O"
+   term.setCursorPos(35,14) --cursor position
+   print(deposit) --print
+   
+   balance = "O  Balance"
+   term.setCursorPos(8,16) --cursor position
+   print(balance) --print
+   
+   password = "Password  $"
+   term.setCursorPos(34,16) --cursor position
+   print(password) --print
+   
+ end
