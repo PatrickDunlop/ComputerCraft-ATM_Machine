@@ -1,5 +1,5 @@
- lastSelectPos = 0 --previous list selection state
- currentSelectPos = 0 --list selection state
+ lastSelectPos = "withdraw" --previous list selection state
+ currentSelectPos = "withdraw" --list selection state
  
  term.clear() --clears the screen
  term.setCursorPos(1,1) --sets initial cursor position
@@ -39,9 +39,7 @@ print[[
  term.setCursorPos(34,16) --cursor position
  print(password) --print
  
-while true do
- 
- if currentSelectPos == 0 then
+ if currentSelectPos == "withdraw" then
  
    withdraw = "$  Withdraw"
    term.setCursorPos(8,14) --cursor position
@@ -59,7 +57,7 @@ while true do
    term.setCursorPos(34,16) --cursor position
    print(password) --print
    
-  elseif currentSelectPos == 1 then
+  elseif currentSelectPos == "deposit" then
  
    withdraw = "O  Withdraw"
    term.setCursorPos(8,14) --cursor position
@@ -77,7 +75,7 @@ while true do
    term.setCursorPos(34,16) --cursor position
    print(password) --print
    
-  elseif currentSelectPos == 2 then
+  elseif currentSelectPos == "balance" then
  
    withdraw = "O  Withdraw"
    term.setCursorPos(8,14) --cursor position
@@ -95,7 +93,7 @@ while true do
    term.setCursorPos(34,16) --cursor position
    print(password) --print
    
-  elseif currentSelectPos == 3 then
+  elseif currentSelectPos == "password" then
  
    withdraw = "O  Withdraw"
    term.setCursorPos(8,14) --cursor position
@@ -112,8 +110,6 @@ while true do
    password = "Password  $"
    term.setCursorPos(34,16) --cursor position
    print(password) --print
-   
- end
  
 end
  
@@ -122,6 +118,7 @@ end
    local sEvent, param os.pullEvent("key")
    if sEvent == "key" then
     if param == 28 then
+     term.clear()
      shell.run(disk/atm/withrdaw)
     end
    end
