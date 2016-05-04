@@ -1,5 +1,5 @@
- lastSelectPos = "withdraw" --previous list selection state
  currentSelectPos = "withdraw" --list selection state
+ currentProgram = "disk/atm/withdraw" --current program to run if enter is pressed
  
  term.clear() --clears the screen
  term.setCursorPos(1,1) --sets initial cursor position
@@ -41,87 +41,106 @@ print[[
  
  if currentSelectPos == "withdraw" then
  
-   withdraw = "$  Withdraw"
-   term.setCursorPos(8,14) --cursor position
-   print(withdraw) --print
-   
-   deposit = "Deposit  O"
-   term.setCursorPos(35,14) --cursor position
-   print(deposit) --print
-   
-   balance = "O  Balance"
-   term.setCursorPos(8,16) --cursor position
-   print(balance) --print
-   
-   password = "Password  O"
-   term.setCursorPos(34,16) --cursor position
-   print(password) --print
-   
-  elseif currentSelectPos == "deposit" then
+  currentProgram = "disk/atm/withdraw" --run this when enter is pressed
  
-   withdraw = "O  Withdraw"
-   term.setCursorPos(8,14) --cursor position
-   print(withdraw) --print
+  withdraw = "$  Withdraw"
+  term.setCursorPos(8,14) --cursor position
+  print(withdraw) --print
    
-   deposit = "Deposit  $"
-   term.setCursorPos(35,14) --cursor position
-   print(deposit) --print
+  deposit = "Deposit  O"
+  term.setCursorPos(35,14) --cursor position
+  print(deposit) --print
    
-   balance = "O  Balance"
-   term.setCursorPos(8,16) --cursor position
-   print(balance) --print
+  balance = "O  Balance"
+  term.setCursorPos(8,16) --cursor position
+  print(balance) --print
    
-   password = "Password  O"
-   term.setCursorPos(34,16) --cursor position
-   print(password) --print
+  password = "Password  O"
+  term.setCursorPos(34,16) --cursor position
+  print(password) --print
    
-  elseif currentSelectPos == "balance" then
+ elseif currentSelectPos == "deposit" then
  
-   withdraw = "O  Withdraw"
-   term.setCursorPos(8,14) --cursor position
-   print(withdraw) --print
-   
-   deposit = "Deposit  O"
-   term.setCursorPos(35,14) --cursor position
-   print(deposit) --print
-   
-   balance = "$  Balance"
-   term.setCursorPos(8,16) --cursor position
-   print(balance) --print
-   
-   password = "Password  O"
-   term.setCursorPos(34,16) --cursor position
-   print(password) --print
-   
-  elseif currentSelectPos == "password" then
+  currentProgram = "disk/atm/deposit" --run this when enter is pressed
  
-   withdraw = "O  Withdraw"
-   term.setCursorPos(8,14) --cursor position
-   print(withdraw) --print
+  withdraw = "O  Withdraw"
+  term.setCursorPos(8,14) --cursor position
+  print(withdraw) --print
    
-   deposit = "Deposit  O"
-   term.setCursorPos(35,14) --cursor position
-   print(deposit) --print
+  deposit = "Deposit  $"
+  term.setCursorPos(35,14) --cursor position
+  print(deposit) --print
    
-   balance = "O  Balance"
-   term.setCursorPos(8,16) --cursor position
-   print(balance) --print
+  balance = "O  Balance"
+  term.setCursorPos(8,16) --cursor position
+  print(balance) --print
    
-   password = "Password  $"
-   term.setCursorPos(34,16) --cursor position
-   print(password) --print
+  password = "Password  O"
+  term.setCursorPos(34,16) --cursor position
+  print(password) --print
+   
+ elseif currentSelectPos == "balance" then
  
-end
+  currentProgram = "disk/atm/balance" --run this when enter is pressed
  
- function rawread()
-  while true do
-   local sEvent, param os.pullEvent("key")
-   if sEvent == "key" then
-    if param == 28 then
-     term.clear()
-     shell.run(disk/atm/withrdaw)
-    end
-   end
+  withdraw = "O  Withdraw"
+  term.setCursorPos(8,14) --cursor position
+  print(withdraw) --print
+   
+  deposit = "Deposit  O"
+  term.setCursorPos(35,14) --cursor position
+  print(deposit) --print
+   
+  balance = "$  Balance"
+  term.setCursorPos(8,16) --cursor position
+  print(balance) --print
+   
+  password = "Password  O"
+  term.setCursorPos(34,16) --cursor position
+  print(password) --print
+   
+ elseif currentSelectPos == "password" then
+ 
+  currentProgram = "disk/atm/password" --run this when enter is pressed
+ 
+  withdraw = "O  Withdraw"
+  term.setCursorPos(8,14) --cursor position
+  print(withdraw) --print
+   
+  deposit = "Deposit  O"
+  term.setCursorPos(35,14) --cursor position
+  print(deposit) --print
+   
+  balance = "O  Balance"
+  term.setCursorPos(8,16) --cursor position
+  print(balance) --print
+   
+  password = "Password  $"
+  term.setCursorPos(34,16) --cursor position
+  print(password) --print
+ 
+ end
+ 
+ local function enter()
+ 
+  shell.run(currentProgram)
+ 
+ end
+ 
+ while true do
+ 
+  local event, key = os.pullEvent("key")
+ 
+  if key == 28 then
+ 
+   enter()
+ 
+  elseif key == 29 or key == 14 or key == 42 or key == 54 or key == 157 then
+ 
+   term.clear()
+   term.setCursorPos(1,1)
+   break
+   
   end
  
-end
+ end
