@@ -2,15 +2,10 @@ term.clear()
 term.setCursorPos(1,1)
 print("Your current balance is:")
  
-balance = 1.55555555
+balance = 0.00
  
-printf("%.2f", balance)
- 
-function round(num,idp)
-  local mult = 10^(idp)
-  return math.floor(num * mult + 0.5) / mult
- end
- 
+print(string.format("%.2f", balance))
+
 local function back()
  
  shell.run("disk/atm/atm")
