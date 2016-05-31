@@ -1,0 +1,11 @@
+while true do 
+ term.clear()
+ term.setCursorPos(1,1)
+ print("Please Enter Password:")
+ input = read("$")
+ if input == "bench" then
+  redstone.setOutput("bottom", true)
+  sleep(4)
+  redstone.setOutput("bottom", false)
+ end
+end
