@@ -1,6 +1,6 @@
 term.clear()
 term.setCursorPos(1,1)
-print(Account Info")
+print("Account Info")
 
 local function back()
 
