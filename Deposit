@@ -1,10 +1,10 @@
 term.clear()
-term.setCursorPos(1,1)
-print("deposit")
+term.setCursorPos(1,1) --Standard setup code
+print("deposit") --Temporary print
  
 local function back()
  
- shell.run("disk/atm/atm")
+ shell.run("disk/atm/atm") --Standard code to return to main screen and stop running this code
  
 end
  
