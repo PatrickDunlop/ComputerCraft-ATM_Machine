@@ -4,11 +4,13 @@ print("Your current balance is:")
  
 balance = 0.00
  
-print(string.format("%.2f", balance))
+print(balance .. ".00") --Print the value of balance with ".00" added
+
+--Could have used "print(string.format("%.2f", balance))" but ComputerCraft doesn't support it
 
 local function back()
  
- shell.run("disk/atm/atm")
+ shell.run("disk/atm/atm") --Standard code to return to main screen and stop running this code
  
 end
  
